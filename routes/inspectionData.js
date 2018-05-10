@@ -8,7 +8,10 @@ router.get('/', jwt({ secret: 'HealthCare' }), function (req, res, next) {
     var payload = req.user;
 
     InspectionData.findAll({ where: { Clinic_No: payload.Clinic_No } }).then(inspectionDataList => {
-        res.json(inspectionDataList[inspectionDataList.length - 1]);
+        if(inspectionDataList.length > 0)
+            res.json(inspectionDataList[inspectionDataList.length - 1]);
+        else
+            res.json([]);
     });
 });
 
