@@ -8,7 +8,8 @@ const User = require('../models').AppUser;
 /* User register */
 router.post('/register', [
   check('username').isString().not().isEmpty(),
-  check('password').isString().not().isEmpty()
+  check('password').isString().not().isEmpty(),
+  check('clinic_no').isString().not().isEmpty()
 ], (req, res, next) => {
   const errors = validationResult(req);
 
@@ -20,7 +21,8 @@ router.post('/register', [
     if (user)
       res.send('Username has existed.');
     else {
-      User.create({ App_Account: req.body.username, App_Password: req.body.password });
+      var encodePassword = crypto.createHmac('sha256', 'HealthManagementSystem').update(req.body.password).digest('hex');
+      User.create({ App_Account: req.body.username, App_Password: encodePassword, Clinic_No:  req.body.clinic_no });
 
       res.send('Register success.');
     }

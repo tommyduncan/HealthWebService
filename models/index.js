@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('testMedical', 'kobebryin', 'ilove5205><', {
-    host: 'tingyinas.myqnapcloud.com',
+const sequelize = new Sequelize('HealthCare', 'healthcare', '1qaz@WSX', {
+    host: '140.131.95.55',
     dialect: 'mysql',
     operatorsAliases: false,
     pool: {
