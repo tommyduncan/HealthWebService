@@ -3,8 +3,8 @@ const Sequelize = require('sequelize');
 function define(sequelize, DataTypes) {
     const InspectionData = sequelize.define('InspectionData', {
         id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
-        Clinic_No: { type: Sequelize.INTEGER, allowNull: false },
-        Inspectionday: { type: Sequelize.TEXT, allowNull: false },
+        Clinic_No: { type: Sequelize.STRING, allowNull: false },
+        Inspectionday: { type: DataTypes.CHAR(8), allowNull: false },
         Clinic_Name: { type: Sequelize.TEXT, allowNull: false },
         Class_Name: { type: Sequelize.TEXT, allowNull: false},
         Height: { type: Sequelize.NUMERIC(4, 1) },
@@ -24,7 +24,7 @@ function define(sequelize, DataTypes) {
         UACR: { type: Sequelize.INTEGER },
         UR: { type: Sequelize.INTEGER },
         ModifiedDate: { type: Sequelize.DATE, allowNull: false, defaultValue: Sequelize.NOW },
-        ModifiedBy: { type: Sequelize.STRING(20), allowNull: false }
+        ModifiedBy: { type: Sequelize.TEXT, allowNull: false }
     });
 
     return InspectionData;
