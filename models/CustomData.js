@@ -15,6 +15,7 @@ function define(sequelize, DataTypes) {
         ResidentSituation: { type: DataTypes.CHAR(1) },
         SmokingHabits: { type: DataTypes.CHAR(1) },
         SportsHabits: { type: DataTypes.CHAR(1) },
+        DrinkHabits: { type: DataTypes.CHAR(1) },
         DiabetesEducation: { type: DataTypes.CHAR(1) },
         BloodGlucoseMachine: { type: DataTypes.CHAR(1) },
         MedicationHabits: { type: DataTypes.CHAR(1) },
